@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+   <!--1.配置User类对象的创建-->
+    <bean id="user" class="com.company.spring5.IOC.User"></bean>
+
+    <!--2.set方法注入属性-->
+    <bean id="book" class="com.company.spring5.IOC.Book">
+        <!--使用property完成属性注入 name:类中的属性名称value:属性值-->
+        <property name="bookName" value="八次危机"></property>
+        <property name="bookAuthor" value="温铁军"></property>
+
+        <!--null值-->
+<!--        <property name="address">-->
+<!--            <null></null>-->
+<!--        </property>-->
+        <!--特殊符号-->
+        <property name="address">
+            <value><![CDATA[<<南京>>]]></value>
+        </property>
+    </bean>
+
+    <!--3.使用有参构造注入属性-->
+    <bean id="orders" class="com.company.spring5.IOC.Orders">
+        <constructor-arg name="orderName" value="歼20"></constructor-arg>
+        <constructor-arg name="address" value="中国"></constructor-arg>
+
+<!--        <constructor-arg index="0" value="辽宁号"></constructor-arg>-->
+<!--        <constructor-arg index="1" value="中国"></constructor-arg>-->
+    </bean>
+
+    <!--4.使用p注入属性-->
+<!--    <bean id="book" class="com.company.spring5.IOC.Book" p:bookName="毛泽东选集" p:bookAuthor="毛泽东"></bean>-->
+</beans>

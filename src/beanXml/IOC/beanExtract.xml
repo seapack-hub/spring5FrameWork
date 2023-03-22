@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/util  http://www.springframework.org/schema/util/spring-util.xsd">
+       <!--提取-->
+       <util:list id="BookList">
+              <value>鬼谷子</value>
+              <value>易经</value>
+              <value>论语</value>
+       </util:list>
+
+       <bean id="book" class="com.company.spring5.IOC.collectionType.Book" scope="prototype">
+              <property name="list" ref="BookList"></property>
+       </bean>
+
+</beans>

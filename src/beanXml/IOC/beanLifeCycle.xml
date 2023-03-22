@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="dept" class="com.company.spring5.IOC.bean.Dept" init-method="initDept" destroy-method="destroyMethod">
+        <property name="deptName" value="售后部"></property>
+    </bean>
+    <bean id="myBeanPost" class="com.company.spring5.IOC.bean.MyBeanPost"></bean>
+</beans>

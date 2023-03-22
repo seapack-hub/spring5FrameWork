@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--内部bean-->
+<!--    <bean id="emp" class="com.company.spring5.IOC.bean.Emp">-->
+<!--        <property name="empName" value="张三"></property>-->
+<!--        <property name="gender" value="男"></property>-->
+<!--        &lt;!&ndash;设置对象类型属性&ndash;&gt;-->
+<!--        <property name="dept">-->
+<!--            <bean id="dept" class="com.company.spring5.IOC.bean.Dept">-->
+<!--                <property name="deptName" value="售后部"></property>-->
+<!--            </bean>-->
+<!--        </property>-->
+<!--    </bean>-->
+
+    <!--级联赋值:方式一-->
+<!--    <bean id="emp" class="com.company.spring5.IOC.bean.Emp">-->
+<!--        <property name="empName" value="张三"></property>-->
+<!--        <property name="gender" value="男"></property>-->
+<!--        &lt;!&ndash;设置对象类型属性&ndash;&gt;-->
+<!--        <property name="dept" ref="dept"></property>-->
+<!--    </bean>-->
+<!--    <bean id="dept" class="com.company.spring5.IOC.bean.Dept">-->
+<!--        <property name="deptName" value="售后部"></property>-->
+<!--    </bean>-->
+
+    <!--级联赋值：方式二-->
+    <bean id="emp" class="com.company.spring5.IOC.bean.Emp">
+        <property name="empName" value="张三"></property>
+        <property name="gender" value="男"></property>
+        <!--设置对象类型属性,需要dept的get方法-->
+        <property name="dept" ref="dept"></property>
+        <property name="dept.deptName" value="财政部"></property>
+    </bean>
+    <bean id="dept" class="com.company.spring5.IOC.bean.Dept" init-method="initDept" destroy-method="destroyMethod">
+        <property name="deptName" value="售后部"></property>
+    </bean>
+</beans>
